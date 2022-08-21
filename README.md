@@ -18,3 +18,31 @@ Routes will comprise the path of uri to go to corresponding controller.
 => First url of mongodb needed to be mentioned
 => further the port number needs to be specified to listen
 Both those requirements are flexible and changable, so will put the files in configs folder.
+
+FIRST COMMIT DONE, after connecting with the database.
+
+5. Create the Users model. For id, only _id field will be there, which each document by default have in mongodb.
+=> Folders like controllers, middlewares, routes are created.
+=> For authentication and authorization logic, middleware is created.
+=> controllers for processing like authController, productController, addressController, and orderController etcetera.
+=> routes for all the routes and calling corresponding methods from respective controllers to do the required task. The index.js file comprises the routes information.
+=> The index.js file needs to be plugged with the server
+
+6. Starting with AuthController, authjwt, authAdmin for signup process, '/users'
+=> For signup process, the request should be POST one having all details of the user in request body.
+
+=> The user details will be a JSON, that needs to be converted to js objects, for that we need some kind of parser. 
+-> similarly, once the user sign up successfully, the user details needs to be given as response, there JS object need to be converted to json.
+-> for this interconversion of json to js and vice-versa, the external middleware body-parser is required.
+-> body-parser is added in server.js, a dependency
+
+=> for generating tokens and providing as response headers, jsonwebtoken is required, this dependency should be added
+=> The token generation task will be done with the auth.middleware.js
+-> token will be given as part of request to authController further.
+-> also the _id field of user will be passed.
+
+=> for validating whether the user is admin user or not, adminauth will be added as middleware
+
+=> Files created, auth.jwt.js, auth.admin.js, auth.controller.js, user.model.js etcera.
+
+COMMIT 2, routes, controllers, models, middlewares created, 

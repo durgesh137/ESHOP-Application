@@ -6,6 +6,10 @@ const mongoose = require('mongoose');
 const dbConfig = require('./configs/db.config');
 const serverConfig = require('./configs/server.config');
 
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+
 /**
  * 1. Make connection with the database
  */
@@ -25,6 +29,11 @@ db.on('error', () =>{
  db.once('open', () => {
     console.log('Connected to database');
 })
+
+/**
+ * 5. Plugging the routes
+ */
+ require('./routes/index')(app);
 
 /**
  * 4. Start the server
