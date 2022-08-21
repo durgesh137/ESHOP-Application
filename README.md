@@ -45,4 +45,20 @@ FIRST COMMIT DONE, after connecting with the database.
 
 => Files created, auth.jwt.js, auth.admin.js, auth.controller.js, user.model.js etcera.
 
-COMMIT 2, routes, controllers, models, middlewares created, 
+COMMIT 2 DONE, routes, controllers, models, middlewares created, user model created, dependencies for body-parser, jsonwebtoken added.
+
+7. For signup process
+-> the user details need to be verified, so user.validator.js will be there
+-> The password value should be saved after encrypting it with bcryptjs, this dependency needs to be added as well.
+-> the admin signup is also happening
+
+8. signin process
+-> the user details required for login needs to checked
+-> the encrpted password needs to checked using bcrypt
+-> email should there in users collection, in a document, found using findOne method
+-> the token needs to be generated once, email, password are accurate, 
+-> for token generation, jwt, a secret key is need, defined in configs folder, auth.config.js
+-> once signin done, token is given as response header and user details as response body in json
+
+COMMIT 3 DONE, signup and signin process of user done
+
