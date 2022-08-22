@@ -3,5 +3,10 @@ module.exports = {
     EMPTY_STRING : '',
     ADMIN_ROLE : 'ADMIN',
     USER_ROLE : 'USER',
-    LANDMARK : ''
+    LANDMARK : '',
+    PRODUCT_NAME : '',
+    PRODCUT_PRICE : 10.0,
+    PRODUCT_CATEGORY : 'MISCELLANEOUS',
+    PRODUCT_DESCRIPTION : '',
+    PRODUCT_IMAGE_URL : 'IMAGE URL'
 }

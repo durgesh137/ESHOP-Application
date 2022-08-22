@@ -69,3 +69,13 @@ COMMIT 3 DONE, signup and signin process of user done
 -> the post response is prepared having details of saved address and user details
 
 COMMIT 4 DONE, address details saved in addresses collection.
+
+10. Product REST ENDPOINTS- III
+-> Search product
+-> Get Product Categories
+-> Get Product by ID
+-> Save Product
+-> Update Product details
+-> Delete product 
+
+COMMIT 5 DONE, Product endpoint completed

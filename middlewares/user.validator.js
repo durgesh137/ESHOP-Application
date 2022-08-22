@@ -5,6 +5,7 @@
  */
 
 const defaults = require('../utils/default.values');
+const User = require('../models/user.model');
 
 /**
  * 1. This function validates details of the user
@@ -106,7 +107,24 @@ const checkSignupDetails = (req, res, next) => {
 
 }
 
+/**
+ * function checks if the request is made by an user or not
+ */
+ const isUser  = async(req, res, next) => {
+    /**
+     * 1. find the user corresponding to given id
+     */
+    const userObj = await User.findOne({_id : req._id});
+
+    //validate if not user, then admin is not authorized
+    if(!(userObj.role  === 'USER')){
+        return res.status(401).send('You are not authorised to access this endpoint!')
+    }
+    next()
+}
+
 module.exports = {
     checkSignupDetails : checkSignupDetails,
-    checkSigninDetails : checkSigninDetails
+    checkSigninDetails : checkSigninDetails,
+    isUser : isUser
 }
