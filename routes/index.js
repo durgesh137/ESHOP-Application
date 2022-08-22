@@ -4,12 +4,15 @@
 
 const userValidator = require('../middlewares/user.validator');
 const addressValidator = require('../middlewares/address.validator');
+const productValidator = require('../middlewares/product.validator');
+const orderValidator = require('../middlewares/order.validate')
+
 const productController = require('../controllers/product.controller');
 const authController = require('../controllers/auth.controller');
 const addressController = require('../controllers/address.controller');
+const orderController = require('../controllers/order.controller');
 
 const authJwt = require('../middlewares/auth.jwt');
-const productValidator = require('../middlewares/product.validator');
 const authAdmin = require('../middlewares/auth.admin')
 
 module.exports = (app) => {
@@ -65,4 +68,9 @@ module.exports = (app) => {
     */
     app.delete('/Eshop/api/v1/products/:productId', [authJwt.verifyToken, authAdmin.isAdmin],productController.deleteProductById);
 
+    /**
+     * Order controller route
+     * 10. create Order : '/orders + POST
+    */
+    app.post('/Eshop/api/v1/orders', [authJwt.verifyToken, userValidator.isUser, orderValidator.checkOrderDetails],orderController.createOrder);
 }
