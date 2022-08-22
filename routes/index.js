@@ -3,7 +3,10 @@
  */
 
 const userValidator = require('../middlewares/user.validator');
+const addressValidator = require('../middlewares/address.validator');
 const authController = require('../controllers/auth.controller');
+const authJwt = require('../middlewares/auth.jwt');
+const addressController = require('../controllers/address.controller');
 
 module.exports = (app) => {
     /**
@@ -17,6 +20,12 @@ module.exports = (app) => {
      * 2. login - "/auth" + POST
      */
      app.post('/Eshop/api/v1/auth', [userValidator.checkSigninDetails],authController.signin);
+
+    /**
+     * Shipping Address Controller route
+     * 3. Add Address - "/addresses" + POST
+     */
+    app.post('/Eshop/api/v1/addresses',[authJwt.verifyToken, addressValidator.checkAddressDetails] ,addressController.addAddress);
 
 
 
