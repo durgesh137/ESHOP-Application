@@ -21,7 +21,7 @@ const verifyToken = (req, res, next) => {
         });
     }
     /**
-     * 2. validate the token using jasonwebtoken
+     * 2. validate the token using jsonwebtoken
      */
     jwt.verify(token, authConfig.SECRET_KEY, (err, decoded) => {
         if (err) {

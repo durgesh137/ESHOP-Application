@@ -54,7 +54,6 @@ const authConfig = require('../configs/auth.config');
         /**
          * 4 return error response, if user could not saved
         */
-       console.log('Error while registering user ', err.message);
         return res.status(500).send({
             message : 'Internal server error while saving user!'
         })

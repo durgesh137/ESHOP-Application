@@ -65,7 +65,6 @@ const addAddress = async (req, res) => {
          */
         return res.status(201).send(postResponse);
     }catch(err){
-        console.log(err.message);
         return res.status(500).send({
             message : 'Internal server error while saving  Address'
         });        
