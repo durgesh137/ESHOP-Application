@@ -86,3 +86,8 @@ COMMIT 5 DONE, Product endpoint completed
 -> order.controller.js deals with logic to make an order
 
 COMMIT 6 DONE, order endpoint completed, REST API Endpoints - IV
+
+12. ADMIN USER
+-> admin user created in server.js to available readily, the moment application is started
+
+COMMIT 7 DONE, ADMIN USER added implicitly
