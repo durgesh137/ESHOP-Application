@@ -5,10 +5,13 @@ const app = require('express')();
 const mongoose = require('mongoose');
 const dbConfig = require('./configs/db.config');
 const serverConfig = require('./configs/server.config');
+const User = require('./models/user.model')
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
+
+const bcrypt = require('bcryptjs');
 
 /**
  * 1. Make connection with the database
@@ -28,8 +31,26 @@ db.on('error', () =>{
  */
  db.once('open', () => {
     console.log('Connected to database');
+    init();
 })
 
+/**
+ * Create admin user
+ */
+async function init(){
+    /**
+     * drop the users collection first
+     */
+    
+    await User.collection.drop();
+    const adminUser = await User.create({
+        email :'admin@upgrad.com',
+        password : bcrypt.hashSync('password',8),
+        contactNumber : 1111100000,
+        role : 'ADMIN'
+    })
+    console.log(adminUser);
+}
 /**
  * 5. Plugging the routes
  */
