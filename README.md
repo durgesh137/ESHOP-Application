@@ -43,7 +43,7 @@ FIRST COMMIT DONE, after connecting with the database.
 
 => for validating whether the user is admin user or not, adminauth will be added as middleware
 
-=> Files created, auth.jwt.js, auth.admin.js, auth.controller.js, user.model.js etcera.
+=> Files created, auth.jwt.js, auth.admin.js, auth.controller.js, user.model.js etcetra.
 
 COMMIT 2 DONE, routes, controllers, models, middlewares created, user model created, dependencies for body-parser, jsonwebtoken added.
 
@@ -62,3 +62,10 @@ COMMIT 2 DONE, routes, controllers, models, middlewares created, user model crea
 
 COMMIT 3 DONE, signup and signin process of user done
 
+9. Saving address
+-> the access token sent as value for 'x-access-token' key in request headers is validated within auth.jwt.js
+-> All the fields present in request body are validated within address.validate.js
+-> address.controller.js reads the details from request body and _id from request, then save the request object in address collection.
+-> the post response is prepared having details of saved address and user details
+
+COMMIT 4 DONE, address details saved in addresses collection.
