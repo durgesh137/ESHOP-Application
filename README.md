@@ -79,3 +79,10 @@ COMMIT 4 DONE, address details saved in addresses collection.
 -> Delete product 
 
 COMMIT 5 DONE, Product endpoint completed
+
+11. Order
+-> To validate order, order.validate.js is created
+-> Only a valid user can make an order, so tokens are verified
+-> order.controller.js deals with logic to make an order
+
+COMMIT 6 DONE, order endpoint completed, REST API Endpoints - IV
